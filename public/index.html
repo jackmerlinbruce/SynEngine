@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SynEngine</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+
+    <select name="cars">
+        {{each}}
+            <option value="volvo">{songName}</option>
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="fiat">Fiat</option>
+        <option value="audi">Audi</option>
+    </select>
+
+    <div class="square" id="square"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.8.6/Tone.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/@tonejs/midi"></script>
+    <script src="../scripts/MIDIplayer.js"></script>
+    
+</body>
+</html>
