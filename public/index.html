@@ -9,17 +9,25 @@
 </head>
 <body>
 
-    <select name="cars">
-        {{each}}
-            <option value="volvo">{songName}</option>
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="fiat">Fiat</option>
-        <option value="audi">Audi</option>
-    </select>
+    <!-- song select -->
 
+
+    <form method="post">
+
+        <label for="songSelect">Select song...</label>
+        <select id="songSelect" name="cars">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="fiat">Fiat</option>
+            <option value="audi">Audi</option>
+        </select>
+
+    </form>
+
+    <!-- musical squares -->
     <div class="square" id="square"></div>
 
+    <!-- scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.8.6/Tone.min.js"></script>
     <script type="text/javascript" src="https://unpkg.com/@tonejs/midi"></script>
     <script src="../scripts/MIDIplayer.js"></script>

@@ -2,7 +2,25 @@ body {
     display: flex;
     /* justify-content: center;
     align-items: center; */
-    background-color: black
+    background-color: rgb(61, 61, 61)
+}
+
+text {
+    font-family: Arial, Helvetica, sans-serif
+}
+
+.gridContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* height: 60vh; */
+    /* width: 60vw; */
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+    grid-gap: 0px;
+    padding: 20px;
 }
 
 .square {

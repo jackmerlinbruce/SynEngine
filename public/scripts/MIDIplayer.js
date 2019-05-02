@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let song = []
     let newSong = []
     let parsedMidi = []
-    const songPath = "./songs/sweetChildOfMine.mid"
+    const songPath = "./songs/The_Eurythmics_-_Sweet_Dreams.mid"
 
     Midi.fromUrl(songPath).then(midi => {
         console.log('MIDI tracks', midi.tracks)

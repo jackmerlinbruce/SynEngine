@@ -1,6 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const midi = require('./MIDIparser.js');
 
 const app = express();
 
@@ -11,7 +10,11 @@ app.get('/', (req, res) => {
     console.log('hello world')
 })
 
-const PORT = process.env.PORT || 4444;
+app.post('/', (req, res) => {
+    console.log('hello world')
+})
+
+const PORT = process.env.PORT || 5555;
 app.listen(PORT, function(){
-    console.log(`Listening on ${PORT}`);
+    console.log(`Listening on localhost:${PORT}`);
 });
