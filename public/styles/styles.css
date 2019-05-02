@@ -1,13 +1,22 @@
 body {
-    display: flex;
+    /* display: flex; */
     /* justify-content: center;
     align-items: center; */
-    background-color: rgb(61, 61, 61)
+    background-color: rgb(26, 26, 26)
 }
 
-text {
-    font-family: Arial, Helvetica, sans-serif
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: antiquewhite;
+    text-align: center;
 }
+
+.songSelectMenu {
+    text-align: center;
+}
+
+
+
 
 .gridContainer {
     position: absolute;

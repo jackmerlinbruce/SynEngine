@@ -10,19 +10,13 @@
 <body>
 
     <!-- song select -->
-
-
-    <form method="post">
-
-        <label for="songSelect">Select song...</label>
-        <select id="songSelect" name="cars">
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="fiat">Fiat</option>
-            <option value="audi">Audi</option>
+    <h1>SynaesthesiaEngine</h1>
+    <div class="songSelectMenu">
+        <select class="songSelect" id="songSelect" name="songs">
+            <option value="" disabled selected>Choose your song</option>
+            <!-- MIDIplayer.js will add in the <options/> -->
         </select>
-
-    </form>
+    </div>
 
     <!-- musical squares -->
     <div class="square" id="square"></div>

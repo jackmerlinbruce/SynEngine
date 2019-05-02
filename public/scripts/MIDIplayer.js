@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    
     //////////
     // Synth
     //////////
@@ -12,6 +11,32 @@ document.addEventListener('DOMContentLoaded', function() {
           // "release": 0.6
         }
     }).toMaster()
+
+    //////////
+    // Select Song
+    //////////
+    const songSelect = document.getElementById('songSelect');
+    let mySong = null
+    fetch('/songSelect')
+        .then(res => res.json())
+        .then(files => {
+            const container = document.createElement('div');
+            container.innerHTML = `<option value="" disabled selected>Choose your song</option>`
+            files.forEach(file => {
+                container.innerHTML += `<option value="${file.path}">${file.filename}</option>`;
+            });
+            songSelect.innerHTML = container.innerHTML;
+        })
+        .catch(err => {
+            console.log('err', err);
+        });
+
+    songSelect.addEventListener('change', function(e){
+        mySong = e.target.value;
+        currentPos = 0 // reset playhead
+        parsedMidi = [] // nuke the MIDI stream
+        parsedMidi = loadMIDI()
+    })
     
     //////////
     // Song
@@ -23,47 +48,50 @@ document.addEventListener('DOMContentLoaded', function() {
         - this will get triggered when i press ArrowLeft
 
     */
+    function loadMIDI() {
+        let song = []
+        let newSong = []
+        let parsedMidi = []
+        // const songPath = "./songs/The_Eurythmics_-_Sweet_Dreams.mid"
+        const songPath = `./songs/${mySong}`
+        console.log(songPath)
 
-    let song = []
-    let newSong = []
-    let parsedMidi = []
-    const songPath = "./songs/The_Eurythmics_-_Sweet_Dreams.mid"
+        Midi.fromUrl(songPath).then(midi => {
+            console.log('MIDI tracks', midi.tracks)
+            midi.tracks.forEach(track => {
+                track.notes.forEach(note => {
+                    song.push(note.name)
+                    newSong.push([note.name, note.time.toFixed(1)]) // toFixed is quantization
+                })
+            })   
 
-    Midi.fromUrl(songPath).then(midi => {
-        console.log('MIDI tracks', midi.tracks)
-        midi.tracks.forEach(track => {
-            track.notes.forEach(note => {
-                song.push(note.name)
-                newSong.push([note.name, note.time.toFixed(1)]) // toFixed is quantization
+            console.log('newSong', newSong)
+            var newSongMap = {}
+            newSong.forEach(i => {
+                // create a time map of empty arrays
+                time = i[1]
+                newSongMap[time] = []
             })
-        })   
-
-        console.log('newSong', newSong)
-        var newSongMap = {}
-        newSong.forEach(i => {
-            // create a time map of empty arrays
-            time = i[1]
-            newSongMap[time] = []
+            newSong.forEach(i => {
+                // for each same time code array, push every note playing at that time 
+                note = i[0]
+                time = i[1]
+                newSongMap[time].push(note)
+            })
+            Object.values(newSongMap).forEach(notes_at_timecode => {
+                // grabs the UNIQUE note arrays out of the newSongMap obj
+                //!!! remove all MIDI notes ocataves 2 and below
+                notes_at_timecode = new Set(notes_at_timecode)
+                parsedMidi.push(Array.from(notes_at_timecode))
+            })
+            console.log('newSongMap', newSongMap)
         })
-        newSong.forEach(i => {
-            // for each same time code array, push every note playing at that time 
-            note = i[0]
-            time = i[1]
-            newSongMap[time].push(note)
-        })
-        Object.values(newSongMap).forEach(notes_at_timecode => {
-            // grabs the UNIQUE note arrays out of the newSongMap obj
-            //!!! remove all MIDI notes ocataves 2 and below
-            notes_at_timecode = new Set(notes_at_timecode)
-            parsedMidi.push(Array.from(notes_at_timecode))
-        })
-        console.log('newSongMap', newSongMap)
-    })
+        console.log('parsedMidi', parsedMidi)
 
-    console.log('parsedMidi', parsedMidi)
+        return parsedMidi
 
+    }
 
-    
     // const sweetChildOfMine = [['C3', 'E4'],'C5','G4','F4','F5','G4','Fb5','G4']
     // song = sweetChildOfMine
     // song = parsedMidi
@@ -142,4 +170,5 @@ document.addEventListener('DOMContentLoaded', function() {
     square.addEventListener('touchend', (event) => {
         square.classList.toggle('on')
     })
+    
 })
