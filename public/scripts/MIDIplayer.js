@@ -46,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
         TO DO:
         - put all notes that occur at the samne time or NEAR (e.g. to 2 dp) in the same array
         - this will get triggered when i press ArrowLeft
-
     */
     function loadMIDI() {
         let song = []
