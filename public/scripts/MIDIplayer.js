@@ -155,19 +155,33 @@ document.addEventListener('DOMContentLoaded', function() {
         } 
     })
 
+    // const square = document.getElementById('square')
+    // square.addEventListener('mouseover', (event) => {
+    //     stepForward()
+    // })
+    // square.addEventListener('mouseout', (event) => {
+    //     square.classList.toggle('on')
+    // })
 
-    const square = document.getElementById('square')
-    square.addEventListener('mouseover', (event) => {
-        stepForward()
-    })
-    square.addEventListener('mouseout', (event) => {
-        square.classList.toggle('on')
-    })
-    square.addEventListener('touchstart', (event) => {
-        stepForward()
-    })
-    square.addEventListener('touchend', (event) => {
-        square.classList.toggle('on')
-    })
+
+    /////////
+    // Grid controls
+    /////////
+    let circles = document.getElementsByClassName('circle')
+    console.log('circles', circles)
+
+    for (let i = 0; i < circles.length; i++) {
+        circles[i].addEventListener('mouseover', (e) => {
+            circles[i].className = circles[i].className + " on"
+            stepForward()
+            // let note = getRandomNote()
+            // synth.triggerAttackRelease(note, '16n')
+            // circles[i].style.backgroundColor = colorMap[note]
+        })
+        circles[i].addEventListener('mouseout', (e) => {
+            circles[i].className = circles[i].className.replace(" on", "")
+            // circles[i].style.backgroundColor = 'black'
+        })
+    }
     
 })
