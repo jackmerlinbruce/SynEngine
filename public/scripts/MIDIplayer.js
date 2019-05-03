@@ -1,4 +1,23 @@
 document.addEventListener('DOMContentLoaded', function() {
+
+    //////////////////
+    // Intro Animations
+    //////////////////
+    function introAnimations(fromThisCircle=19.5) {
+        noteCounter.innerText = `Notes remaining: ${circles.length}`
+        TweenMax.staggerFrom(".circle", 0.5, {
+            scale: 0.1,
+            opacity: 0,
+            // y: 40,
+            ease: Power3.easeInOut,
+            stagger: {
+                grid: 'auto',
+                from: fromThisCircle,
+                amount: 2.5,
+            }
+        })
+    }
+
     //////////////////
     // Synth
     //////////////////
@@ -35,6 +54,8 @@ document.addEventListener('DOMContentLoaded', function() {
         currentPos = 0 // reset playhead
         parsedMidi = [] // nuke the MIDI stream
         parsedMidi = loadMIDI()
+        introAnimations()
+        
     })
     
     //////////////////
@@ -103,19 +124,19 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentPos = 0
     let avgMidiValue = null
 
-    let stepForward = function() {
+    let stepForward = function(stayOnNote=false) {
         let notes = parsedMidi[currentPos]
         console.log(currentPos, notes)
 
-        // Play notes        
+        // PLAY NOTES  
         synth.triggerAttackRelease(notes, '16n')
         if (currentPos === parsedMidi.length - 1) { // if at end of sequence
             currentPos = 0 // resets to begining
         } else {
-            currentPos ++ // moves to next step
+            stayOnNote ? currentPos : currentPos ++ // moves to next step
         }
         
-        // Generate colour
+        // GENERATE COLOUR
         let midiValues = []
         notes.map(note => {
             // convert the note names into numerical midi values
@@ -134,10 +155,16 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             return midiMappingValue
         }
-
         avgMidiValue = getAvgMidiValue(kind='max')
 
-
+        // INCREMENT NOTE COUNTER
+        let noteCounter = document.getElementById('noteCounter')
+        var notesRemaining = circles.length-currentPos
+        noteCounter.innerText = `Notes remaining: ${notesRemaining}`
+        if (notesRemaining == 0) {
+            notesRemaining = circles.length
+            introAnimations(circleID)
+        } 
     }
     
     let stepBackward = function() {
@@ -166,24 +193,38 @@ document.addEventListener('DOMContentLoaded', function() {
         } 
     })
 
-    // MOUSEOVER
-    let circles = document.getElementsByClassName('circle')
+    // GRID
     let body = document.querySelector('body')
+    var circles = document.getElementsByClassName('circle')
+    var circleID = null
     for (let i = 0; i < circles.length; i++) {
         circles[i].addEventListener('mouseover', (e) => {
             circles[i].className = circles[i].className + " on"
             stepForward()
             console.log(avgMidiValue)
-            circles[i].style.backgroundColor = colourScale(avgMidiValue)
+            // the reason all this colour change logic can't be in "stepForward()" is that
+            // we need knowledge of *which* square's style to change, i.e, "circles[i]"
+            circles[i].style.backgroundColor = colourScale(avgMidiValue) 
             circles[i].style.transform = `scale(${sizeScale(avgMidiValue)})`
             body.style.backgroundColor = colourScale(avgMidiValue)
-            
+            body.style.opacity = 0.7
+            circleID = i // used to set the introAnimation()
         })
         circles[i].addEventListener('mouseout', (e) => {
             circles[i].className = circles[i].className.replace(" on", "")
             circles[i].style.backgroundColor = 'black'
-            circles[i].style.transform = `scale(0)`
+            circles[i].style.transform = `scale(0)` // this is why squares vanish after the fact
+        })
+
+        circles[i].addEventListener('mousedown', (e) => {
+            stepForward(stayOnNote=true)
+            circles[i].style.backgroundColor = 'white'
+            circles[i].style.transform = `rotate(0.5turn)`
+        })
+        circles[i].addEventListener('mouseup', (e) => {
+            circles[i].style.backgroundColor = colourScale(avgMidiValue)
         })
     }
     
+
 })
