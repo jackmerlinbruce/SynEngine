@@ -1,0 +1,218 @@
+[{
+        "A#0": { "frequency": 29.14, "value": 22
+    },
+        "A#1": { "frequency": 58.27, "value": 34
+    },
+        "A#2": { "frequency": 116.54, "value": 46
+    },
+        "A#3": { "frequency": 233.08, "value": 58
+    },
+        "A#4": { "frequency": 466.16, "value": 70
+    },
+        "A#5": { "frequency": 932.33, "value": 82
+    },
+        "A#6": { "frequency": 1864.66, "value": 94
+    },
+        "A#7": { "frequency": 3729.31, "value": 106
+    },
+        "A#8": { "frequency": 7458.62, "value": 118
+    },
+        "A0": { "frequency": 27.5, "value": 21
+    },
+        "A1": { "frequency": 55.0, "value": 33
+    },
+        "A2": { "frequency": 110.0, "value": 45
+    },
+        "A3": { "frequency": 220.0, "value": 57
+    },
+        "A4": { "frequency": 440.0, "value": 69
+    },
+        "A5": { "frequency": 880.0, "value": 81
+    },
+        "A6": { "frequency": 1760.0, "value": 93
+    },
+        "A7": { "frequency": 3520.0, "value": 105
+    },
+        "A8": { "frequency": 7040.0, "value": 117
+    },
+        "B0": { "frequency": 30.87, "value": 23
+    },
+        "B1": { "frequency": 61.74, "value": 35
+    },
+        "B2": { "frequency": 123.47, "value": 47
+    },
+        "B3": { "frequency": 246.94, "value": 59
+    },
+        "B4": { "frequency": 493.88, "value": 71
+    },
+        "B5": { "frequency": 987.77, "value": 83
+    },
+        "B6": { "frequency": 1975.53, "value": 95
+    },
+        "B7": { "frequency": 3951.07, "value": 107
+    },
+        "B8": { "frequency": 7902.13, "value": 119
+    },
+        "C#1": { "frequency": 34.65, "value": 25
+    },
+        "C#2": { "frequency": 69.3, "value": 37
+    },
+        "C#3": { "frequency": 138.59, "value": 49
+    },
+        "C#4": { "frequency": 277.18, "value": 61
+    },
+        "C#5": { "frequency": 554.37, "value": 73
+    },
+        "C#6": { "frequency": 1108.73, "value": 85
+    },
+        "C#7": { "frequency": 2217.46, "value": 97
+    },
+        "C#8": { "frequency": 4434.92, "value": 109
+    },
+        "C#9": { "frequency": 8869.84, "value": 121
+    },
+        "C1": { "frequency": 32.7, "value": 24
+    },
+        "C2": { "frequency": 65.41, "value": 36
+    },
+        "C3": { "frequency": 130.81, "value": 48
+    },
+        "C4": { "frequency": 261.63, "value": 60
+    },
+        "C5": { "frequency": 523.25, "value": 72
+    },
+        "C6": { "frequency": 1046.5, "value": 84
+    },
+        "C7": { "frequency": 2093.0, "value": 96
+    },
+        "C8": { "frequency": 4186.01, "value": 108
+    },
+        "C9": { "frequency": 8372.02, "value": 120
+    },
+        "D#1": { "frequency": 38.89, "value": 27
+    },
+        "D#2": { "frequency": 77.78, "value": 39
+    },
+        "D#3": { "frequency": 155.56, "value": 51
+    },
+        "D#4": { "frequency": 311.13, "value": 63
+    },
+        "D#5": { "frequency": 622.25, "value": 75
+    },
+        "D#6": { "frequency": 1244.51, "value": 87
+    },
+        "D#7": { "frequency": 2489.02, "value": 99
+    },
+        "D#8": { "frequency": 4978.03, "value": 111
+    },
+        "D#9": { "frequency": 9956.06, "value": 123
+    },
+        "D1": { "frequency": 36.71, "value": 26
+    },
+        "D2": { "frequency": 73.42, "value": 38
+    },
+        "D3": { "frequency": 146.83, "value": 50
+    },
+        "D4": { "frequency": 293.66, "value": 62
+    },
+        "D5": { "frequency": 587.33, "value": 74
+    },
+        "D6": { "frequency": 1174.66, "value": 86
+    },
+        "D7": { "frequency": 2349.32, "value": 98
+    },
+        "D8": { "frequency": 4698.64, "value": 110
+    },
+        "D9": { "frequency": 9397.27, "value": 122
+    },
+        "E1": { "frequency": 41.2, "value": 28
+    },
+        "E2": { "frequency": 82.41, "value": 40
+    },
+        "E3": { "frequency": 164.81, "value": 52
+    },
+        "E4": { "frequency": 329.63, "value": 64
+    },
+        "E5": { "frequency": 659.26, "value": 76
+    },
+        "E6": { "frequency": 1318.51, "value": 88
+    },
+        "E7": { "frequency": 2637.02, "value": 100
+    },
+        "E8": { "frequency": 5274.04, "value": 112
+    },
+        "E9": { "frequency": 10548.08, "value": 124
+    },
+        "F#1": { "frequency": 46.25, "value": 30
+    },
+        "F#2": { "frequency": 92.5, "value": 42
+    },
+        "F#3": { "frequency": 185.0, "value": 54
+    },
+        "F#4": { "frequency": 369.99, "value": 66
+    },
+        "F#5": { "frequency": 739.99, "value": 78
+    },
+        "F#6": { "frequency": 1479.98, "value": 90
+    },
+        "F#7": { "frequency": 2959.96, "value": 102
+    },
+        "F#8": { "frequency": 5919.91, "value": 114
+    },
+        "F#9": { "frequency": 11839.82, "value": 126
+    },
+        "F1": { "frequency": 43.65, "value": 29
+    },
+        "F2": { "frequency": 87.31, "value": 41
+    },
+        "F3": { "frequency": 174.61, "value": 53
+    },
+        "F4": { "frequency": 349.23, "value": 65
+    },
+        "F5": { "frequency": 698.46, "value": 77
+    },
+        "F6": { "frequency": 1396.91, "value": 89
+    },
+        "F7": { "frequency": 2793.83, "value": 101
+    },
+        "F8": { "frequency": 5587.65, "value": 113
+    },
+        "F9": { "frequency": 11175.3, "value": 125
+    },
+        "G#1": { "frequency": 51.91, "value": 32
+    },
+        "G#2": { "frequency": 103.83, "value": 44
+    },
+        "G#3": { "frequency": 207.65, "value": 56
+    },
+        "G#4": { "frequency": 415.3, "value": 68
+    },
+        "G#5": { "frequency": 830.61, "value": 80
+    },
+        "G#6": { "frequency": 1661.22, "value": 92
+    },
+        "G#7": { "frequency": 3322.44, "value": 104
+    },
+        "G#8": { "frequency": 6644.88, "value": 116
+    },
+        "G#9": { "frequency": 13289.75, "value": 128
+    },
+        "G1": { "frequency": 49.0, "value": 31
+    },
+        "G2": { "frequency": 98.0, "value": 43
+    },
+        "G3": { "frequency": 196.0, "value": 55
+    },
+        "G4": { "frequency": 392.0, "value": 67
+    },
+        "G5": { "frequency": 783.99, "value": 79
+    },
+        "G6": { "frequency": 1567.98, "value": 91
+    },
+        "G7": { "frequency": 3135.96, "value": 103
+    },
+        "G8": { "frequency": 6271.93, "value": 115
+    },
+        "G9": { "frequency": 12543.85, "value": 127
+    }
+}]

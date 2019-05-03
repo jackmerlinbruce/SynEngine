@@ -11,6 +11,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.get('/', (req, res) => {
     console.log('hello world')
 })
+
 app.get('/songSelect', (req, res) => {
     const songs = []
     const directoryPath = path.join(__dirname, './public/songs');
