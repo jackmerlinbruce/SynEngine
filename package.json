@@ -19,6 +19,6 @@
     "tone": "^13.4.9"
   },
   "devDependencies": {
-    "nodemon": "^1.18.11"
+    "nodemon": "^1.19.0"
   }
 }

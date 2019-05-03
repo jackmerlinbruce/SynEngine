@@ -15,20 +15,18 @@ app.get('/songSelect', (req, res) => {
     const songs = []
     const directoryPath = path.join(__dirname, './public/songs');
     fs.readdir(directoryPath, function (err, files) {
-        //handling error
         if (err) {
             return console.log('Unable to scan directory: ' + err);
         } 
         //listing all files using forEach
-        files.forEach(function (file) {
+        files.forEach((file) => {
             // Do whatever you want to do with the file
             let song = {}
-            song["path"] = file
-            song["filename"] = file
+            song['path'] = file
+            song['filename'] = file
             songs.push(song)
-            // console.log(file); 
         });
-        console.log(songs)
+        // console.log(songs)
         res.send(songs)
     });
 
@@ -36,7 +34,7 @@ app.get('/songSelect', (req, res) => {
 })
 
 // Serve
-const PORT = process.env.PORT || 5555;
+const PORT = process.env.PORT || 5678;
 app.listen(PORT, function(){
     console.log(`Listening on localhost:${PORT}`);
 });
