@@ -1,0 +1,217 @@
+[{"100": {"frequency": 2637.02, "note": "E7"
+    },
+ "101": {"frequency": 2793.83, "note": "F7"
+    },
+ "102": {"frequency": 2959.96, "note": "F#7"
+    },
+ "103": {"frequency": 3135.96, "note": "G7"
+    },
+ "104": {"frequency": 3322.44, "note": "G#7"
+    },
+ "105": {"frequency": 3520.0, "note": "A7"
+    },
+ "106": {"frequency": 3729.31, "note": "A#7"
+    },
+ "107": {"frequency": 3951.07, "note": "B7"
+    },
+ "108": {"frequency": 4186.01, "note": "C8"
+    },
+ "109": {"frequency": 4434.92, "note": "C#8"
+    },
+ "110": {"frequency": 4698.64, "note": "D8"
+    },
+ "111": {"frequency": 4978.03, "note": "D#8"
+    },
+ "112": {"frequency": 5274.04, "note": "E8"
+    },
+ "113": {"frequency": 5587.65, "note": "F8"
+    },
+ "114": {"frequency": 5919.91, "note": "F#8"
+    },
+ "115": {"frequency": 6271.93, "note": "G8"
+    },
+ "116": {"frequency": 6644.88, "note": "G#8"
+    },
+ "117": {"frequency": 7040.0, "note": "A8"
+    },
+ "118": {"frequency": 7458.62, "note": "A#8"
+    },
+ "119": {"frequency": 7902.13, "note": "B8"
+    },
+ "120": {"frequency": 8372.02, "note": "C9"
+    },
+ "121": {"frequency": 8869.84, "note": "C#9"
+    },
+ "122": {"frequency": 9397.27, "note": "D9"
+    },
+ "123": {"frequency": 9956.06, "note": "D#9"
+    },
+ "124": {"frequency": 10548.08, "note": "E9"
+    },
+ "125": {"frequency": 11175.3, "note": "F9"
+    },
+ "126": {"frequency": 11839.82, "note": "F#9"
+    },
+ "127": {"frequency": 12543.85, "note": "G9"
+    },
+ "128": {"frequency": 13289.75, "note": "G#9"
+    },
+ "21": {"frequency": 27.5, "note": "A0"
+    },
+ "22": {"frequency": 29.14, "note": "A#0"
+    },
+ "23": {"frequency": 30.87, "note": "B0"
+    },
+ "24": {"frequency": 32.7, "note": "C1"
+    },
+ "25": {"frequency": 34.65, "note": "C#1"
+    },
+ "26": {"frequency": 36.71, "note": "D1"
+    },
+ "27": {"frequency": 38.89, "note": "D#1"
+    },
+ "28": {"frequency": 41.2, "note": "E1"
+    },
+ "29": {"frequency": 43.65, "note": "F1"
+    },
+ "30": {"frequency": 46.25, "note": "F#1"
+    },
+ "31": {"frequency": 49.0, "note": "G1"
+    },
+ "32": {"frequency": 51.91, "note": "G#1"
+    },
+ "33": {"frequency": 55.0, "note": "A1"
+    },
+ "34": {"frequency": 58.27, "note": "A#1"
+    },
+ "35": {"frequency": 61.74, "note": "B1"
+    },
+ "36": {"frequency": 65.41, "note": "C2"
+    },
+ "37": {"frequency": 69.3, "note": "C#2"
+    },
+ "38": {"frequency": 73.42, "note": "D2"
+    },
+ "39": {"frequency": 77.78, "note": "D#2"
+    },
+ "40": {"frequency": 82.41, "note": "E2"
+    },
+ "41": {"frequency": 87.31, "note": "F2"
+    },
+ "42": {"frequency": 92.5, "note": "F#2"
+    },
+ "43": {"frequency": 98.0, "note": "G2"
+    },
+ "44": {"frequency": 103.83, "note": "G#2"
+    },
+ "45": {"frequency": 110.0, "note": "A2"
+    },
+ "46": {"frequency": 116.54, "note": "A#2"
+    },
+ "47": {"frequency": 123.47, "note": "B2"
+    },
+ "48": {"frequency": 130.81, "note": "C3"
+    },
+ "49": {"frequency": 138.59, "note": "C#3"
+    },
+ "50": {"frequency": 146.83, "note": "D3"
+    },
+ "51": {"frequency": 155.56, "note": "D#3"
+    },
+ "52": {"frequency": 164.81, "note": "E3"
+    },
+ "53": {"frequency": 174.61, "note": "F3"
+    },
+ "54": {"frequency": 185.0, "note": "F#3"
+    },
+ "55": {"frequency": 196.0, "note": "G3"
+    },
+ "56": {"frequency": 207.65, "note": "G#3"
+    },
+ "57": {"frequency": 220.0, "note": "A3"
+    },
+ "58": {"frequency": 233.08, "note": "A#3"
+    },
+ "59": {"frequency": 246.94, "note": "B3"
+    },
+ "60": {"frequency": 261.63, "note": "C4"
+    },
+ "61": {"frequency": 277.18, "note": "C#4"
+    },
+ "62": {"frequency": 293.66, "note": "D4"
+    },
+ "63": {"frequency": 311.13, "note": "D#4"
+    },
+ "64": {"frequency": 329.63, "note": "E4"
+    },
+ "65": {"frequency": 349.23, "note": "F4"
+    },
+ "66": {"frequency": 369.99, "note": "F#4"
+    },
+ "67": {"frequency": 392.0, "note": "G4"
+    },
+ "68": {"frequency": 415.3, "note": "G#4"
+    },
+ "69": {"frequency": 440.0, "note": "A4"
+    },
+ "70": {"frequency": 466.16, "note": "A#4"
+    },
+ "71": {"frequency": 493.88, "note": "B4"
+    },
+ "72": {"frequency": 523.25, "note": "C5"
+    },
+ "73": {"frequency": 554.37, "note": "C#5"
+    },
+ "74": {"frequency": 587.33, "note": "D5"
+    },
+ "75": {"frequency": 622.25, "note": "D#5"
+    },
+ "76": {"frequency": 659.26, "note": "E5"
+    },
+ "77": {"frequency": 698.46, "note": "F5"
+    },
+ "78": {"frequency": 739.99, "note": "F#5"
+    },
+ "79": {"frequency": 783.99, "note": "G5"
+    },
+ "80": {"frequency": 830.61, "note": "G#5"
+    },
+ "81": {"frequency": 880.0, "note": "A5"
+    },
+ "82": {"frequency": 932.33, "note": "A#5"
+    },
+ "83": {"frequency": 987.77, "note": "B5"
+    },
+ "84": {"frequency": 1046.5, "note": "C6"
+    },
+ "85": {"frequency": 1108.73, "note": "C#6"
+    },
+ "86": {"frequency": 1174.66, "note": "D6"
+    },
+ "87": {"frequency": 1244.51, "note": "D#6"
+    },
+ "88": {"frequency": 1318.51, "note": "E6"
+    },
+ "89": {"frequency": 1396.91, "note": "F6"
+    },
+ "90": {"frequency": 1479.98, "note": "F#6"
+    },
+ "91": {"frequency": 1567.98, "note": "G6"
+    },
+ "92": {"frequency": 1661.22, "note": "G#6"
+    },
+ "93": {"frequency": 1760.0, "note": "A6"
+    },
+ "94": {"frequency": 1864.66, "note": "A#6"
+    },
+ "95": {"frequency": 1975.53, "note": "B6"
+    },
+ "96": {"frequency": 2093.0, "note": "C7"
+    },
+ "97": {"frequency": 2217.46, "note": "C#7"
+    },
+ "98": {"frequency": 2349.32, "note": "D7"
+    },
+ "99": {"frequency": 2489.02, "note": "D#7"
+    }
+}]

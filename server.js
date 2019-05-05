@@ -35,7 +35,7 @@ app.get('/songSelect', (req, res) => {
 })
 
 // Serve
-const PORT = process.env.PORT || 5678;
+const PORT = process.env.PORT || 6789;
 app.listen(PORT, function(){
     console.log(`Listening on localhost:${PORT}`);
 });

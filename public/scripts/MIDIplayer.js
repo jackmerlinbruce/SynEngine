@@ -1,24 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
 
     //////////////////
-    // Intro Animations
-    //////////////////
-    function introAnimations(fromThisCircle=19.5) {
-        noteCounter.innerText = `Notes remaining: ${circles.length}`
-        TweenMax.staggerFrom(".circle", 0.5, {
-            scale: 0.1,
-            opacity: 0,
-            // y: 40,
-            ease: Power3.easeInOut,
-            stagger: {
-                grid: 'auto',
-                from: fromThisCircle,
-                amount: 2.5,
-            }
-        })
-    }
-
-    //////////////////
     // Synth
     //////////////////
     var synth = new Tone.PolySynth(6, Tone.Synth).set({
@@ -54,12 +36,79 @@ document.addEventListener('DOMContentLoaded', function() {
         currentPos = 0 // reset playhead
         parsedMidi = [] // nuke the MIDI stream
         parsedMidi = loadMIDI()
-        introAnimations()
+        // parsedMidi = loadData()
+        // if (mySong.contiains('.mid')) {
+        //     parsedMidi = loadMIDI() // MIDI route
+        // } else if (mySong.contiains('.csv')) {
+        //     parsedMidi = loadData() // data route
+        // }
         
+
+
+
+        introAnimations()
     })
     
     //////////////////
-    // Parse MIDI
+    // Intro Animations
+    //////////////////
+    function introAnimations(fromThisCircle = 19.5) {
+        noteCounter.innerText = `Notes remaining: ${circles.length}`
+
+        TweenMax.staggerFrom(".circle", 0.5, {
+            scale: 0.1,
+            opacity: 0,
+            // y: 40,
+            ease: Power3.easeInOut,
+            stagger: {
+                grid: 'auto',
+                from: fromThisCircle,
+                amount: 2.5,
+            }
+        })
+        TweenMax.staggerTo(".circle", 0.5, {
+            scale: 1,
+            ease: Power3.easeInOut,
+            stagger: {
+                grid: 'auto',
+                from: fromThisCircle,
+                amount: 2.5,
+            }
+        })
+    }
+
+    //////////////////
+    // Synaesthesia Maps
+    //////////////////
+    var midiMap = $.getJSON({ 'url': "/scripts/midiMap.json", 'async': false });
+    midiMap = JSON.parse(midiMap.responseText)[0]
+
+    var noteMap = $.getJSON({ 'url': "/scripts/noteMap.json", 'async': false });
+    noteMap = JSON.parse(noteMap.responseText)[0]
+
+    var midiLow = 21
+    var midiHigh = 100
+
+    var colourScale = d3.scale.sqrt()
+        .domain([midiLow, (midiLow + midiHigh) / 2, midiHigh]) // lowest & highest MIDI values
+        .range(['#240F4A', '#B83856', '#FAC53F'])
+
+    var sizeScale = d3.scale.sqrt()
+        .domain([midiLow, midiHigh]) // lowest & highest MIDI values
+        .range([1, 2])
+
+    function getMidiScale(data) {
+        let dataMin = Math.min(...data)
+        let dataMax = Math.max(...data)
+        let midiScale = d3.scale.linear()
+            .domain([dataMin, dataMax])
+            .rangeRound([midiLow, midiHigh])
+        return midiScale
+    }
+
+
+    //////////////////
+    // Parse MIDI or CSV
     // https://github.com/Tonejs/Midi/blob/master/examples/load.html
     //////////////////
     function loadMIDI() {
@@ -91,33 +140,41 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             Object.values(newSongMap).forEach(notes_at_timecode => {
                 // grabs the UNIQUE note arrays out of the newSongMap obj
-                //!!! remove all MIDI notes ocataves 2 and below
                 notes_at_timecode = new Set(notes_at_timecode)
-                parsedMidi.push(Array.from(notes_at_timecode))
+
+                // removes all MIDI notes ocataves X and below
+                notes_at_timecode = Array.from(notes_at_timecode)
+                notes_at_timecode_cleaned = []
+                notes_at_timecode.forEach(note => {
+                    if (midiMap[note].value > 45) { // removes all MIDI notes below 40
+                        notes_at_timecode_cleaned.push(note)
+                    }
+                })
+                if (notes_at_timecode_cleaned.length > 0) {
+                    parsedMidi.push(Array.from(notes_at_timecode_cleaned))
+                }
             })
             // console.log('newSongMap', newSongMap)
         })
-        console.log('parsedMidi', parsedMidi)
+        // console.log('parsedMidi', parsedMidi)
         return parsedMidi
     }
+    
+    function loadData(){ 
+        // const testData = [{ "temperature": 10 }, { "temperature": 20 }, { "temperature": 50 }, { "temperature": 89 }, { "temperature": 23 }]
+        const testData = [10,20,50,60,30,20,5]
+        const midiScale = getMidiScale(testData)
 
-    //////////////////
-    // Synaesthesia Maps
-    //////////////////
-    var midiMap = $.getJSON({ 'url': "/scripts/midiMap.json", 'async': false });
-    midiMap = JSON.parse(midiMap.responseText)[0]
+        let parsedData = []
+        testData.forEach(d => {
+            d = midiScale(d)
+            d = noteMap[d].note
+            parsedData.push([d])
+        })
 
-    var midiLow = 21
-    var midiHigh = 128
+        return parsedData
 
-    let colourScale = d3.scale.sqrt()
-        .domain([midiLow, (midiLow + midiHigh) / 2, midiHigh]) // lowest & highest MIDI values
-        .range(['#240F4A', '#B83856', '#FAC53F'])
-
-    let sizeScale = d3.scale.sqrt()
-        .domain([midiLow, midiHigh]) // lowest & highest MIDI values
-        .range([1, 2])
-
+    }
     //////////////////
     // Playhead
     //////////////////
@@ -184,12 +241,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ARROW KEYS
     window.addEventListener('keydown', (event) => {
-        const forwardKeys = ['ArrowRight', 'ArrowDown', 'Space']
+        const forwardKeys = ['ArrowRight', 'ArrowDown']
         const backwardKeys = ['ArrowLeft', 'ArrowUp']
+        // const randomizeKeys = ['Space']
         if (forwardKeys.includes(event.code)) {
             stepForward()
         } else if (backwardKeys.includes(event.key)) {
             stepBackward()
+        } else if (event.key === 'Space') {
+        	console.log('change colours?')
+            colourScale.range('black', 'grey', 'white')
         } 
     })
 
@@ -213,7 +274,7 @@ document.addEventListener('DOMContentLoaded', function() {
         circles[i].addEventListener('mouseout', (e) => {
             circles[i].className = circles[i].className.replace(" on", "")
             circles[i].style.backgroundColor = 'black'
-            circles[i].style.transform = `scale(0)` // this is why squares vanish after the fact
+            circles[i].style.transform = `rotate(0.5turn) scale(0)` // this is why squares vanish after the fact
         })
 
         circles[i].addEventListener('mousedown', (e) => {
