@@ -1,3 +1,26 @@
+
+a { color: white; }
+
+
+.footer {
+    position: fixed;
+    opacity: 0.3;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    /* background-color: red; */
+    color: white;
+    text-align: center;
+    display: flex;
+}
+
+.boob {
+    font-family: 'Rubik', sans-serif;
+    flex: 1;
+    font-weight: 100;
+    font-size: 1.1vw;
+}
+
 body {
     /* display: flex; */
     /* justify-content: center;
@@ -7,7 +30,7 @@ body {
 }
 
 .title {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Rubik', sans-serif;
     color: antiquewhite;
     text-align: center;
 }
@@ -67,7 +90,7 @@ body {
 
 .circle {
     width: 2.5vw;
-    height: 30px;
+    height: 35px;
     border-radius: 0%;
     transform: scale(0);
     /* position: absolute; */

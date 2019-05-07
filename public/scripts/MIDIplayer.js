@@ -35,16 +35,13 @@ document.addEventListener('DOMContentLoaded', function() {
         mySong = e.target.value;
         currentPos = 0 // reset playhead
         parsedMidi = [] // nuke the MIDI stream
-        parsedMidi = loadMIDI()
-        // parsedMidi = loadData()
-        // if (mySong.contiains('.mid')) {
-        //     parsedMidi = loadMIDI() // MIDI route
-        // } else if (mySong.contiains('.csv')) {
-        //     parsedMidi = loadData() // data route
-        // }
         
-
-
+        if (mySong.includes('.mid')) {
+            console.log('yay')
+            parsedMidi = loadMIDI() // MIDI route
+        } else if (mySong.includes('.csv')) {
+            parsedMidi = loadData() // data route
+        }
 
         introAnimations()
     })
@@ -160,17 +157,35 @@ document.addEventListener('DOMContentLoaded', function() {
         return parsedMidi
     }
     
-    function loadData(){ 
-        // const testData = [{ "temperature": 10 }, { "temperature": 20 }, { "temperature": 50 }, { "temperature": 89 }, { "temperature": 23 }]
-        const testData = [10,20,50,60,30,20,5]
-        const midiScale = getMidiScale(testData)
+    function loadData() {
+        // https://trends.google.com/trends/explore?date=2017-11-01%202018-10-31&q=flu
 
+        let preParsedData = []
         let parsedData = []
-        testData.forEach(d => {
-            d = midiScale(d)
-            d = noteMap[d].note
-            parsedData.push([d])
+
+        const dataPath = `./songs/${mySong}`
+        console.log(dataPath)
+
+        d3.csv(dataPath, function(data) {
+            data.forEach(d => {
+                preParsedData.push(d[10])// why is this 10?
+            })
+            const midiScale = getMidiScale(preParsedData)
+            preParsedData.forEach(d => {
+                d = midiScale(d)
+                d = noteMap[d].note
+                parsedData.push([d])// why is this 10?
+            })
+            console.log(parsedData)
         })
+
+        // const testData = [10,20,50,60,30,20,5]
+        // const midiScale = getMidiScale(testData)
+        // testData.forEach(d => {
+        //     d = midiScale(d)
+        //     d = noteMap[d].note
+        //     parsedData.push([d])
+        // })
 
         return parsedData
 
