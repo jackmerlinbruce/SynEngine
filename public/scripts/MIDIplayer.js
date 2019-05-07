@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function loadData() {
-        // https://trends.google.com/trends/explore?date=2017-11-01%202018-10-31&q=flu
+        //https://trends.google.com/trends/explore?date=2017-11-01%202018-10-31&q=flu
 
         let preParsedData = []
         let parsedData = []
@@ -272,6 +272,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // GRID
     let body = document.querySelector('body')
     var circles = document.getElementsByClassName('circle')
+    //
     var circleID = null
     for (let i = 0; i < circles.length; i++) {
         circles[i].addEventListener('mouseover', (e) => {
